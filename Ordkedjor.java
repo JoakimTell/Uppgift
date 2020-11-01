@@ -71,6 +71,7 @@ public class Ordkedjor {
      * @return directed graph
      */
 
+    //Metoden compareWords och createDirectedGraphSlow funkar för 13 och 250 txt filen men inte 5757.
     public static Digraph createDirectedGraphSlow(ArrayList<String> words) {
         Digraph diGraph = new Digraph(words.size());
         for (int i = 0; i < words.size(); i++) {
