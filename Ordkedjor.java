@@ -73,15 +73,26 @@ public class Ordkedjor {
 
     public static Digraph createDirectedGraphSlow(ArrayList<String> words) {
         Digraph diGraph = new Digraph(words.size());
-        for(int i = 0; i< words.size(); i++) {
-            if(words.get())
+        for (int i = 0; i < words.size(); i++) {
+            for (int j = 0; j < words.size(); j++) {
+                if (compareWords(words.get(i), words.get(j))) {
+                    diGraph.addEdge(i, j);
+                }
+            }
+        }
+        return diGraph;
+    }
+
+    public static boolean compareWords(String word1, String word2) {
+        for(int i=1; i<5; i++) {
+            if(word2.indexOf(word1.charAt(i))>=0) {
+                word2.replace(word1.charAt(i), ' ');
+            }
+            else
+                return false;
         }
 
-
-        //kolla om 4 av bokstäverna finns i ett ord och isåfall skapa en väg mellan dem.
-        //2 for-loops
-        // Algoritm...
-        return diGraph;
+        return true;
     }
     //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 }
